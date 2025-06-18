@@ -9,7 +9,7 @@
       "use": "@vercel/static-build",
       "config": {
         "distDir": "staticfiles",
-        "command": "python manage.py collectstatic --noinput && gunicorn <your_project>.wsgi"
+        "command": "python manage.py collectstatic --noinput && gunicorn django-hello-world2.wsgi"
       }
     }
   ],
