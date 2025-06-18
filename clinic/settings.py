@@ -124,9 +124,8 @@ STATIC_URL = '/main/static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+STATIC_ROOT = os.path.join(BASE_DIR,"main/static")  
 
 if os.environ.get("VERCEL"):
-
-    STATIC_ROOT = os.path.join(BASE_DIR,"main/static")  
 
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
