@@ -120,9 +120,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static"
-]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
@@ -130,6 +127,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if os.environ.get("VERCEL"):
 
-    STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
+    STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")  
 
-    STATICFILES_STORAGE = "whitenoise.storage.CommpressedManifestStaticFilesStorage"
+    STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
