@@ -1,7 +1,7 @@
 {
   "builds": [
     {
-      "src": "vercel_app/wsgi.py",
+      "src": "django-hello-world2/wsgi.py",
       "use": "@vercel/python"
     }
   ],
@@ -12,7 +12,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "vercel_app/wsgi.py"
+      "dest": "django-hello-world2/wsgi.py"
     }
   ]
 }
