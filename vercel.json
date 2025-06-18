@@ -8,18 +8,15 @@
       "src": "build.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "staticfiles"
+        "distDir": "staticfiles",
+        "command": "python manage.py collectstatic --noinput && gunicorn <your_project>.wsgi"
       }
     }
   ],
+  
   "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "vercel_app/wsgi.py"
-    },
-    {
-      "src": "/static/(.*)",
-      "dest": "/static/$1"
-    }
+   
+    { "src": "/static/(.*)", "dest": "/staticfiles/$1" },
+    { "src": "/(.*)", "dest": "/manage.py" }
   ]
 }
