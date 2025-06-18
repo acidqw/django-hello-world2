@@ -8,8 +8,7 @@
       "src": "build.sh",
       "use": "@vercel/static-build",
       "config": {
-        "distDir": "staticfiles",
-        "command": "python manage.py collectstatic --noinput && gunicorn django_hello_world2.wsgi"
+        "distDir": "staticfiles"
       }
     }
   ],
@@ -17,7 +16,7 @@
   "routes": [
     {
       "src": "/static/(.*)",
-      "dest": "/static/$1"
+      "dest": "/staticfiles/static/$1"
     },
     {
       "src": "/(.*)",
