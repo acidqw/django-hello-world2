@@ -118,7 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'main/static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static"
@@ -130,6 +130,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if os.environ.get("VERCEL"):
 
-    STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")  
+    STATIC_ROOT = "main/static"
+
 
     STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
