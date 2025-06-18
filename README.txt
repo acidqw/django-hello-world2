@@ -1,0 +1,1 @@
+чтобы запустить сайт нужно находиться в директории django-hello-world2/clinic и написать в терминал "python manage.py runserver" либо "python3 manage.py runserver", затем перейти по адресу "http://127.0.0.1:8000/"
