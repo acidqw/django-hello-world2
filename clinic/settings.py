@@ -132,4 +132,4 @@ if os.environ.get("VERCEL"):
 
     STATIC_ROOT = os.path.join(BASE_DIR,"staticfiles")
 
-    STATICFILES_STORAGE = "whitenoise.storage.CommpressedManifestStaticFileStorage"
+    STATICFILES_STORAGE = "whitenoise.storage.CommpressedManifestStaticFilesStorage"

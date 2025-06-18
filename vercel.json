@@ -1,22 +1,28 @@
-
 {
-  "builds": [
+  "builds":[
     {
-      "src": "build.sh",
+      "src": "vercel_app/wsgi.py",
       "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/static/(.*)",
-      "dest": "/staticfiles/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "gunicorn django_hello_world2.wsgi:application"
+      "src": "build.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "staticfiles",
+        "command": "python manage.py collectstatic --noinput && gunicorn django-hello-world2.wsgi"
+      }
     }
   ],
-  "env": {
-    "DJANGO_SETTINGS_MODULE": "django_hello_world2.settings"
-  }
+  
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "vercel_app/wsgi.py"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    }
+    
+  ]
 }
