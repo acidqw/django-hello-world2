@@ -1,8 +1,17 @@
 {
   "builds":[
-    { "src": "manage.py", "use": "@vercel/python", "config": { "maxLambdaSize": "50mb" } }
-
-  
+    {
+      "src": "vercel_app/wsgi.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "build.sh",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "static",
+        "command": "python manage.py collectstatic --noinput && gunicorn django-hello-world2.wsgi"
+      }
+    }
   ],
   
   "routes": [
